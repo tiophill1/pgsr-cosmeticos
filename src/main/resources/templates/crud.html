@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crud</title>
+   
+</head>
+<style>
+        body {
+            background-color: white;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100%;
+            padding: 20px;
+        }
+        .header {
+            background-color: #000000;
+            color: #7A583D; 
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 24px;
+            color: #7A583D; 
+        }
+        a {
+            text-decoration: none;
+            color: #7A583D; 
+        }
+        a:hover {
+            color: #ffcc00;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: left;
+            
+           
+        }
+        th {
+            background-color: #000000;
+            color: #7A583D; 
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(odd) {
+            background-color: #ffffff;
+        }
+        .logo {
+            text-align: center;
+            padding: 20px;
+        }
+        .logo img {
+            max-width: 200px;
+        }
+    </style>
+<body>
+<section>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <img src="pgsrfoto.png" alt="Logo">
+            </div>
+            <h1>Cadastro de Usuários</h1>
+            <a th:href="@{/pgsr/cliente/novo-cliente}">Adicionar</a>
+        </div>
+
+        <div class="divTable">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Telefone</th>
+                        <th>CPF</th>
+                        <th>Senha</th>
+                        <th>Editar</th>
+                        <th>Excluir</th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr th:each="cliente : ${Cliente}">
+                        <td th:text="${cliente.nome}" contenteditable="true" maxlength="50"></td>
+                        <td th:text="${cliente.email}" contenteditable="true" maxlength="50"></td>
+                        <td th:text="${cliente.telefone}" contenteditable="true" maxlength="50"></td>
+                        <td th:text="${cliente.cpf}" contenteditable="true" maxlength="50"></td>
+                        <td th:text="${cliente.senha}" contenteditable="true" maxlength="50"></td>
+                        <td><a href="control2.html">Editar</a></td>
+                        <td><a href="">Excluir</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+
+</body>
+</html>

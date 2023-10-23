@@ -23,24 +23,26 @@ import com.comesticos.tcc.pgsrcosmeticos.repository.ClienteRepository;
 @Controller
 @RequestMapping("/pgsr/cliente")
 public class ClienteController {
+	List<Cliente> listCliente = new ArrayList<Cliente>();
 
 	@Autowired //Injeção de dependência
 	private ClienteRepository clienteRepository;
 	
+	@GetMapping("/listar-cliente")
+	public String tabelaClientes(Model model, Cliente cliente) {
+		model.addAttribute("cliente", clienteRepository.findAll());
+		return "crud";
+	}
+	
     @GetMapping("/novo-cliente")
     public String litarProduto(Model model, Cliente cliente) {
-
 
         model.addAttribute("cliente",cliente);
         return "Cadastro_cliente";
 
     }
 
-@GetMapping("/control")
-public String tabelaClientes(Model model, Cliente cliente) {
-	
-	return "control";
-}
+
     
 //Cadastrar (inserir)
 
@@ -50,8 +52,9 @@ public String tabelaClientes(Model model, Cliente cliente) {
 			return "Cadastro_cliente";
 		}
 		
-		cliente.setCodStatus(true);
 		Cliente clienteDB = clienteRepository.save(cliente);
+		cliente.setCodStatus(true);
+		
 		return "redirect:/pgsr/cliente/control";
 	}
 	

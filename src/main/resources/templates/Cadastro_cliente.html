@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
-    <script src="/tcc.js" defer></script>
+    <script src="tcc.js" defer></script>
     <title>Cadastro</title>
 </head>
 <body>
     <header>
-        <img src="/tcc.png" alt="Logo da Loja de Cosméticos" class="logo">
+        <img src="tcc.png" alt="Logo da Loja de Cosméticos" class="logo">
     </header>
     <div class="container">
         <h1>Cadastro</h1>
-        <form action="#" method="post" id="cadastroForm" th:action="">
+        <form th:action="@{/pgsr/cliente/add-cliente}" method="post" id="cadastroForm">
             <div class="input-group">
                 <label for="nome">Nome Completo:</label>
                 <input type="text" id="nome" name="nome" required placeholder="Ex: Carlos Souza Silva">
@@ -59,12 +59,12 @@
                 <input type="checkbox" id="barba" name="interesses" value="barba">
                 <label for="barba">Cuidados com a Barba</label>
             </div>
-            <div class="input-group">
-                <button type="submit">Cadastrar</button>
-            </div>
+            
+                <input type="submit" class="input-group">Cadastrar</input>
+            
         </form>
         <h2>
-            <img src="/google.png" alt="Entrar com o Google" class="google-logo"> Entrar com o Google
+            <img src="google.png" alt="Entrar com o Google" class="google-logo"> Entrar com o Google
         </h2>
     </div>
     <footer>

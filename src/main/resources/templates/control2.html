@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style2.css">
+    <script src="/cliente_editar.js" defer></script>
+    <title>Editar Cliente</title>
+</head>
+<body>
+    <header>
+        <img src="tcc.png" alt="Logo da Loja de Cosméticos" class="logo">
+    </header>
+    <div class="container">
+        <h1>Editar Cliente</h1>
+        <form th:action="@{/pgsr/cliente/editar-cliente}" method="post" id="formEditarCliente" th:action="">
+            <div class="grupo-de-entrada">
+                <label for="nome">Nome Completo:</label>
+                <input type="texto" id="nome" name="nome" required placeholder="Ex: Carlos Souza Silva">
+            </div>
+            <div class="grupo-de-entrada">
+                <label for="telefone">Telefone:</label>
+                <input type="texto" id="telefone" name="telefone" required placeholder="Ex: 11934959567" maxlength="11">
+                <span id="erroTelefone" class="erro"></span>
+            </div>
+            <div class="grupo-de-entrada">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required placeholder="Ex: Carlossouza@gmail.com">
+            </div>
+            <div class="grupo-de-entrada">
+                <label for="senha">Senha:</label>
+                <input type="senha" id="senha" name="senha" required placeholder="******">
+            </div>
+            <div class="grupo-de-entrada">
+                <label for="status_cliente">Status de Cliente:</label>
+                <select id="status_cliente" name="status_cliente" required>
+                    <option value="ativo">Ativo</option>
+                    <option value="inativo">Inativo</option>
+                </select>
+            </div>
+            <div class="grupo-de-entrada">
+                <button type="submit">Salvar Alterações</button>
+            </div>
+        </form>
+    </div>
+    <footer>
+        <p>&copy; 2023 Loja de Cosméticos</p>
+    </footer>
+</body>
+</html>
