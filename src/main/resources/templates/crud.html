@@ -84,7 +84,6 @@
                         <th>Email</th>
                         <th>Telefone</th>
                         <th>CPF</th>
-                        <th>Senha</th>
                         <th>Editar</th>
                         <th>Excluir</th>
 
@@ -92,14 +91,13 @@
                 </thead>
 
                 <tbody>
-                    <tr th:each="cliente : ${Cliente}">
+                    <tr th:each="cliente : ${cliente}">
                         <td th:text="${cliente.nome}" contenteditable="true" maxlength="50"></td>
                         <td th:text="${cliente.email}" contenteditable="true" maxlength="50"></td>
                         <td th:text="${cliente.telefone}" contenteditable="true" maxlength="50"></td>
                         <td th:text="${cliente.cpf}" contenteditable="true" maxlength="50"></td>
-                        <td th:text="${cliente.senha}" contenteditable="true" maxlength="50"></td>
-                        <td><a href="control2.html">Editar</a></td>
-                        <td><a href="">Excluir</a></td>
+                        <td><a th:href="@{/pgsr/cliente/editar-prod/{id}(id=${cliente.id})}">Editar</a></td>
+                        <td><a th:href="@{/pgsr/cliente/delete/{id}(id=${cliente.id})}">Excluir</a></td>
                     </tr>
                 </tbody>
             </table>

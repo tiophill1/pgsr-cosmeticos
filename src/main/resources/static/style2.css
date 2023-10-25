@@ -47,10 +47,10 @@ label {
     color: #333;
 }
 
-input[type="texto"],
+input[type="text"],
 input[type="email"],
 input[type="tel"],
-input[type="senha"],
+input[type="password"],
 select {
     width: 100%;
     padding: 10px;

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="/style2.css">
     <script src="/cliente_editar.js" defer></script>
     <title>Editar Cliente</title>
 </head>
@@ -13,27 +13,29 @@
     </header>
     <div class="container">
         <h1>Editar Cliente</h1>
-        <form th:action="@{/pgsr/cliente/editar-cliente}" method="post" id="formEditarCliente" th:action="">
+        <form th:action="@{/pgsr/cliente/update/{id}(id=${cliente.id})}"  enctype="multipart/form-data" th:object="${cliente}" method="post" id="formEditarCliente">
             <div class="grupo-de-entrada">
                 <label for="nome">Nome Completo:</label>
-                <input type="texto" id="nome" name="nome" required placeholder="Ex: Carlos Souza Silva">
+                <input type="text"  th:field="*{nome}" name="nome" >
             </div>
             <div class="grupo-de-entrada">
                 <label for="telefone">Telefone:</label>
-                <input type="texto" id="telefone" name="telefone" required placeholder="Ex: 11934959567" maxlength="11">
+                <input type="text" th:field="*{telefone}" name="telefone"  placeholder="Ex: 11934959567" maxlength="11">
                 <span id="erroTelefone" class="erro"></span>
             </div>
             <div class="grupo-de-entrada">
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required placeholder="Ex: Carlossouza@gmail.com">
+                <input type="email" th:field="*{email}" name="email"  placeholder="Ex: Carlossouza@gmail.com">
             </div>
-            <div class="grupo-de-entrada">
-                <label for="senha">Senha:</label>
-                <input type="senha" id="senha" name="senha" required placeholder="******">
+            
+              <div class="grupo-de-entrada">
+                <label for="Cpf">CPF:</label>
+                <input type="text" th:field="*{cpf}" name="cpf"  placeholder="cpf">
             </div>
+        
             <div class="grupo-de-entrada">
                 <label for="status_cliente">Status de Cliente:</label>
-                <select id="status_cliente" name="status_cliente" required>
+                <select id="status_cliente" name="status_cliente" >
                     <option value="ativo">Ativo</option>
                     <option value="inativo">Inativo</option>
                 </select>
